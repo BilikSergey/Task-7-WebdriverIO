@@ -1,49 +1,35 @@
-name: CI with Allure Report
+name: Run Tests and Generate Allure Report
 
 on:
   push:
-    branches:
-      - main
+    branches: [main] 
 
 jobs:
-  test:
-    name: Run Tests and Generate Allure Report
+  test-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: "16.x"
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Run tests
-        run: npx wdio run wdio.conf.ts
-
-      - name: Get Allure history
-        uses: actions/checkout@v2
-        if: always()
-        with:
-          ref: gh-pages
-          path: allure-history
+        run: wdio run wdio.conf.ts
 
       - name: Generate Allure Report
-        uses: simple-elf/allure-report-action@master
-        if: always()
-        with:
-          allure_results: allure-results
-          allure_history: allure-history
-          keep_reports: 20
+        run: |
+          npm install -g allure-commandline --save-dev
+          allure generate --clean allure-results -o allure-report
 
-      - name: Deploy report to GitHub Pages
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: allure-history
-          user_name: github-actions
-          user_email: github-actions@users.noreply.github.com
+          publish_dir: ./allure-report
