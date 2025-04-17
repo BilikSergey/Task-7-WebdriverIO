@@ -14,7 +14,7 @@ npm init wdio@latest .
 
 - Install any code editor (VS Code) or IDE.
 
--Install allure.
+- Install allure.
 
 ```bash
 npm install @wdio/allure-reporter --save-dev
@@ -45,7 +45,7 @@ test:headless:chrome
 ```
 Run single test
 ```bash
-login.e2e
+test:login.e2e
 ```
 ```bash
 test:mainFunctions.e2e
@@ -68,7 +68,7 @@ Run tests with microsoft Edge:
 ```bash
 test:headless:edge
 ```
-##Create a report
+## Create a report
 ```bash
 report:allure:generate
 ```
