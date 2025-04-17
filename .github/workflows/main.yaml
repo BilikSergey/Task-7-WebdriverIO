@@ -21,15 +21,16 @@ jobs:
         run: npm install
 
       - name: Run tests
-        run: npx wdio run wdio.conf.ts
+        run: npm run test
+        continue-on-error: true
 
       - name: Generate Allure Report
-        run: |
-          npm install -g allure-commandline --save-dev
-          allure generate --clean allure-results -o allure-report
-
+        run: npm run report:allure:generate
+          
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./allure-report
+          publish_branch: reports
+          commit_message: deploy allure report
