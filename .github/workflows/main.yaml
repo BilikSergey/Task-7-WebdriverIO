@@ -22,12 +22,12 @@ jobs:
         run: npm install
 
       - name: Run tests
-        run: npm run test:headless
+        run: npm run test:headless:chrome
         continue-on-error: true
 
       - name: Generate Allure Report
         run: npm run report:allure:generate
-          
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:

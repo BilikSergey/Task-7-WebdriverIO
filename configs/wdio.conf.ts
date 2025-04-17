@@ -2,16 +2,16 @@ export const config: WebdriverIO.Config = {
   runner: "local",
   tsConfigPath: "./tsconfig.json",
 
-  specs: ["./test/specs/**/*.ts"],
+  specs: ["../test/specs/**/*.ts"],
   exclude: [],
   maxInstances: 10,
   capabilities: [
     {
-      browserName: 'chrome',   // or 'chromium'
-      'goog:chromeOptions': {
-          args: ['headless', 'disable-gpu']
-      }
-  }
+      browserName: "chrome",
+      "goog:chromeOptions": {
+        args: ["headless", "disable-gpu"],
+      },
+    },
   ],
 
   logLevel: "info",
