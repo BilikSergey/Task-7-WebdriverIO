@@ -1,4 +1,8 @@
 {
-  "recaptcha": "Password must be at least 12 characters long and contain at least one number, one symbol, and one upper-case letter.",
-  "terms": "Please accept the terms and conditions"
+  "recaptcha": "That email and password combination is not valid, or your browser could not be authenticated via recaptcha. Please try again.",
+  "passwordError": "Password must be at least 12 characters long and contain at least one number, one symbol, and one upper-case letter.",
+  "terms": "Please accept the terms and conditions",
+  "passwordCharactersQuantity": "Password must be at least 12 characters.",
+  "passwordOneNumber": "Password must contain at least one number.",
+  "emptyField": "This field is required."
 }
