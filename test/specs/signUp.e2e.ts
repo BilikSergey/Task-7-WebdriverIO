@@ -10,41 +10,42 @@ describe("Sign Up Tests", () => {
   });
 
   it("User fails signup due to unchecked terms", async () => {
-    signUpPage.signUp({
+    await signUpPage.signUp({
       email: faker.internet.email(),
       firstName: faker.internet.username(),
       lastName: faker.internet.username(),
       password: userData.password,
       check: false
     });
-    await expect(await signUpPage.errorMessageTerms.getText()).toContain(
-      testData.terms
+    await expect(signUpPage.errorMessageTerms).toHaveText(
+      RegExp(testData.terms)
     );
   });
 
   it("User fails signup due to Recaptcha", async () => {
-    signUpPage.signUp({
+    await signUpPage.signUp({
       email: faker.internet.email(),
       firstName: faker.internet.username(),
       lastName: faker.internet.username(),
       password: userData.password,
       check: true,
     });
-    await expect(await signUpPage.errorMessageRecaptcha.getText()).toContain(
-      testData.recaptcha
+    await expect(signUpPage.errorMessageRecaptcha).toHaveText(
+      RegExp(testData.recaptcha)
     );
   });
 
   it("User fails signup due to invalid email", async () => {
-    signUpPage.signUp({
+    await signUpPage.signUp({
       email: faker.internet.username(),
       firstName: faker.internet.username(),
       lastName: faker.internet.username(),
       password: userData.password,
       check: true,
     });
-    await expect(await signUpPage.errorMessageRecaptcha.getText()).toContain(
-      testData.recaptcha
+    await expect(signUpPage.errorMessageRecaptcha).toHaveText(
+      RegExp(testData.recaptcha)
     );
   });
 });
+
