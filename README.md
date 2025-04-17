@@ -1,4 +1,4 @@
-##Summary of repo
+## Summary of repo
 # Task 7 Wdio
 Repo is dedicated for testing Website Telnyx on wdio, create a report with Allure.
 ##Requirements
