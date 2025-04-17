@@ -10,7 +10,8 @@
     "test:headless": "BROWSER=chrome wdio run wdio.conf.ts --headless --reporters spec,allure",
     "test:headless-firefox": "BROWSER=firefox wdio run wdio.conf.ts --headless --reporters spec,allure",
     "test:chrome-ui": "BROWSER=chrome wdio run wdio.conf.ts --no-headless",
-    "test:firefox-ui": "BROWSER=firefox wdio run wdio.conf.ts --no-headless"
+    "test:firefox-ui": "BROWSER=firefox wdio run wdio.conf.ts --no-headless",
+    "report:allure:generate": "allure generate --clean allure-results -o allure-report"
   },
   "name": "Task 7 WebdriverIO",
   "type": "module",
