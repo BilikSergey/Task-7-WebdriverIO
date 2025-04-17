@@ -20,9 +20,7 @@ describe("Main page", () => {
 
   it("Verify AI assistant chat", async () => {
     await mainFunctionsPage.clickButtonChat();
-    await expect(mainFunctionsPage.userMessageChat).toBeDisplayed();
-    const messages = await mainFunctionsPage.assistantMessageChat;
-    const messagesCount = messages.length;
-    expect(messagesCount).toBe(2);
+    await expect(mainFunctionsPage.userMessageChat).toBeExisting();
+    expect(mainFunctionsPage.assistantMessageChat).toBeElementsArrayOfSize(2);
   });
 });

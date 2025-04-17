@@ -21,14 +21,32 @@ describe("Shop Test", () => {
   it("Search item", async () => {
     await shopPage.searchHat();
     await expect(shopPage.wareHat).toBeExisting();
-    await expect(await shopPage.searchResult.getText()).toContain("1");
+    await expect(shopPage.searchResult).toHaveText(RegExp("1"));
   });
 
-  it(" Delete ware from cart", async () => {
+  it("Delete ware from cart", async () => {
     await shopPage.deleteWareAtCart();
-    await expect(await shopPage.cartEmptyText.getText()).toContain(
-      "Your cart is empty"
-    );
+    await expect(shopPage.cartEmptyText).toHaveText("Your cart is empty");
     await expect(shopPage.buttonContinueShopping).toBeExisting();
+  });
+
+  it("Go to the facebook", async () => {
+    await shopPage.clickButtonFacebook();
+    await expect(await browser.getUrl()).toContain("facebook.com/Telnyx");
+  });
+
+  it("Go to the instagram", async () => {
+    await shopPage.clickButtonInstagram();
+    await expect(await browser.getUrl()).toContain("instagram.com/telnyx");
+  });
+
+  it("Go to the X", async () => {
+    await shopPage.clickButtonX();
+    await expect(await browser.getUrl()).toContain("x.com/telnyx");
+  });
+
+  it("Go to the vimeo", async () => {
+    await shopPage.clickButtonVimeo();
+    await expect(await browser.getUrl()).toContain("vimeo.com/telnyx");
   });
 });

@@ -52,9 +52,9 @@ class MainFunctions {
   }
 
   async openVoiceAIPage() {
-    await this.dropDownMainMenu[1].click(); 
-    await this.dropDownProductsMenu[0].click(); 
-    await this.buttonVoiceAI.click(); 
+    await this.dropDownMainMenu[1].click();
+    await this.dropDownProductsMenu[0].click();
+    await this.buttonVoiceAI.click();
   }
 
   async openSMSAPIPage() {

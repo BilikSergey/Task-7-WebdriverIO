@@ -15,7 +15,7 @@ describe("Sign Up Tests", () => {
       firstName: faker.internet.username(),
       lastName: faker.internet.username(),
       password: userData.password,
-      check: false
+      check: false,
     });
     await expect(signUpPage.errorMessageTerms).toHaveText(
       RegExp(testData.terms)
@@ -31,7 +31,7 @@ describe("Sign Up Tests", () => {
       check: true,
     });
     await expect(signUpPage.errorMessageRecaptcha).toHaveText(
-      RegExp(testData.recaptcha)
+      RegExp(testData.passwordError)
     );
   });
 
@@ -44,8 +44,74 @@ describe("Sign Up Tests", () => {
       check: true,
     });
     await expect(signUpPage.errorMessageRecaptcha).toHaveText(
-      RegExp(testData.recaptcha)
+      RegExp(testData.passwordError)
     );
   });
-});
 
+  it("Verify password message during sign up", async () => {
+    await signUpPage.signUp({
+      email: faker.internet.username(),
+      firstName: faker.internet.username(),
+      lastName: faker.internet.username(),
+      password: "",
+      check: true,
+    });
+    await expect(signUpPage.requiredField).toBeDisplayed();
+    await expect(signUpPage.passwordOneNumber).toBeDisplayed();
+    await expect(signUpPage.passwordLowerCase).toBeDisplayed();
+    await expect(signUpPage.passwordUpperCase).toBeDisplayed();
+    await expect(signUpPage.passwordMinLength).toBeDisplayed();
+    await expect(signUpPage.passwordOneSymbol).toBeDisplayed();
+  });
+
+  it("Verify empty email message during sign up", async () => {
+    await signUpPage.signUp({
+      email: "",
+      firstName: faker.internet.username(),
+      lastName: faker.internet.username(),
+      password: userData.password,
+      check: true,
+    });
+    await expect(signUpPage.errorMessageEmptyEmailInput).toHaveText(
+      testData.emptyField
+    );
+  });
+
+  it("Verify empty first name message during sign up", async () => {
+    await signUpPage.signUp({
+      email: faker.internet.username(),
+      firstName: "",
+      lastName: faker.internet.username(),
+      password: userData.password,
+      check: true,
+    });
+    await expect(signUpPage.errorMessageEmptyFirstNameInput).toHaveText(
+      testData.emptyField
+    );
+  });
+
+  it("Verify empty last name message during sign up", async () => {
+    await signUpPage.signUp({
+      email: faker.internet.username(),
+      firstName: faker.internet.username(),
+      lastName: "",
+      password: userData.password,
+      check: true,
+    });
+    await expect(signUpPage.errorMessageEmptyLastNameInput).toHaveText(
+      testData.emptyField
+    );
+  });
+
+  it("Verify button for applying a promo code", async () => {
+    await signUpPage.signUp({
+      email: faker.internet.username(),
+      firstName: faker.internet.username(),
+      lastName: faker.internet.username(),
+      password: userData.password,
+      check: false,
+    });
+    await signUpPage.clickButtonApplyPromoCode();
+    await expect(signUpPage.inputPromoCode).toBeExisting();
+  });
+});

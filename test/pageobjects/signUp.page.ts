@@ -31,8 +31,56 @@ class SignUpPage {
     return $(".c-UUKrH");
   }
 
+  get errorMessageEmptyEmailInput() {
+    return $("#email_message");
+  }
+
+  get errorMessageEmptyFirstNameInput() {
+    return $("#first_name_message");
+  }
+
+  get errorMessageEmptyLastNameInput() {
+    return $("#last_name_message");
+  }
+
   get errorMessageTerms() {
     return $("#terms_and_conditions_message");
+  }
+
+  get buttonApplyPromoCode() {
+    return $("[aria-hidden='false'] [class*='c-khZXrc c-cXPFLv']");
+  }
+
+  get inputPromoCode() {
+    return $("#promo_code");
+  }
+
+  get passwordMinLength() {
+    return $("#passwordMinLength");
+  }
+
+  get passwordOneNumber() {
+    return $("#passwordOneNumber");
+  }
+
+  get passwordOneSymbol() {
+    return $("#passwordOneSymbol");
+  }
+
+  get passwordUpperCase() {
+    return $("#passwordUpperCase");
+  }
+
+  get passwordLowerCase() {
+    return $("#passwordLowerCase");
+  }
+
+  get requiredField() {
+    return $("#required");
+  }
+
+  async clickButtonApplyPromoCode() {
+    await this.buttonApplyPromoCode.click();
   }
 
   async signUp({
@@ -40,7 +88,7 @@ class SignUpPage {
     firstName,
     lastName,
     password,
-    check
+    check,
   }: {
     email: string;
     firstName: string;

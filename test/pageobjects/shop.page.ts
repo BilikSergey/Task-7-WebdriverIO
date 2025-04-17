@@ -52,9 +52,7 @@ class ShopPage {
   }
 
   get wareHat() {
-    return $(
-      '#CardLink--6960027533390'
-    );
+    return $("#CardLink--6960027533390");
   }
 
   get searchResult() {
@@ -71,6 +69,38 @@ class ShopPage {
 
   get buttonContinueShopping() {
     return $(".drawer__close");
+  }
+
+  get buttonFacebook() {
+    return $$("[href='https://www.facebook.com/Telnyx/']");
+  }
+
+  get buttonInstagram() {
+    return $$("[href='instagram.com/telnyx']");
+  }
+
+  get buttonX() {
+    return $$("[href='https://twitter.com/telnyx']");
+  }
+
+  get buttonVimeo() {
+    return $$("[href='vimeo.com/telnyx']");
+  }
+
+  async clickButtonFacebook() {
+    await this.buttonFacebook[1].click();
+  }
+
+  async clickButtonInstagram() {
+    await this.buttonInstagram[1].click();
+  }
+
+  async clickButtonX() {
+    await this.buttonX[1].click();
+  }
+
+  async clickButtonVimeo() {
+    await this.buttonVimeo[1].click();
   }
 
   async visitShopPage() {

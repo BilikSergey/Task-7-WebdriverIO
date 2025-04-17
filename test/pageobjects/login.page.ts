@@ -1,4 +1,4 @@
-import userData from '../../data/userData.json' assert { type: 'json' };
+import userData from "../../data/userData.json" assert { type: "json" };
 
 class LoginPage {
   get inputEmail() {
