@@ -2,7 +2,7 @@ name: Run Tests and Generate Allure Report
 
 on:
   push:
-    branches: [docker]
+    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -22,13 +22,19 @@ jobs:
         run: npm install
 
       - name: Build Docker Image
-        run: docker build -t wdio-tests .
+        run: npm run docker:build
+
+      - name: Run Docker container
+        run: npm run docker:run
+
+      - name: Clean up Docker images
+        run: docker rmi my-app
 
       - name: Clean old Allure results
         run: rm -rf allure-results allure-report
 
-      - name: Run Tests and Generate Report in Docker
-        run: docker run -v ${{ github.workspace }}/allure-results:/usr/src/app/allure-results wdio-tests
+      - name: Run tests
+        run: npm run test:headless:chrome
         continue-on-error: true
 
       - name: Generate Allure Report
