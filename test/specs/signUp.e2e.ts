@@ -112,6 +112,8 @@ describe("Sign Up Tests", () => {
       check: false,
     });
     await signUpPage.clickButtonApplyPromoCode();
+    await signUpPage.inputPromoCode.waitForDisplayed({ timeout: 5000 });
+    await signUpPage.inputPromoCode.waitForEnabled({ timeout: 5000 });
     await expect(signUpPage.inputPromoCode).toBeExisting();
   });
 });
