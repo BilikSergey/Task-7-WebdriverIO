@@ -2,7 +2,10 @@ import shopPage from "../pageobjects/shop.page.ts";
 
 describe("Shop Test", () => {
   beforeEach(async () => {
+    await browser.setWindowSize(1920, 1080);
     await shopPage.visitShopPage();
+    await shopPage.buttonShop.waitForDisplayed({ timeout: 5000 });
+    await shopPage.buttonShop.waitForEnabled({ timeout: 5000 });
     await shopPage.clickButtonShop();
   });
 
@@ -32,21 +35,21 @@ describe("Shop Test", () => {
 
   it("Go to the facebook", async () => {
     await shopPage.clickButtonFacebook();
-    await expect(await browser.getUrl()).toContain("facebook.com/Telnyx");
+    await expect(await browser.getUrl()).toContain("https://www.facebook.com/Telnyx/");
   });
 
   it("Go to the instagram", async () => {
     await shopPage.clickButtonInstagram();
-    await expect(await browser.getUrl()).toContain("instagram.com/telnyx");
+    await expect(await browser.getUrl()).toContain("https://www.instagram.com/telnyx");
   });
 
   it("Go to the X", async () => {
     await shopPage.clickButtonX();
-    await expect(await browser.getUrl()).toContain("x.com/telnyx");
+    await expect(await browser.getUrl()).toContain("https://x.com/telnyx");
   });
 
   it("Go to the vimeo", async () => {
     await shopPage.clickButtonVimeo();
-    await expect(await browser.getUrl()).toContain("vimeo.com/telnyx");
+    await expect(await browser.getUrl()).toContain("https://vimeo.com/telnyx");
   });
 });

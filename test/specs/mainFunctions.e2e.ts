@@ -8,6 +8,7 @@ describe("Main page", () => {
 
   it("Verify presence of elements on the Voice AI page", async () => {
     await mainFunctionsPage.openVoiceAIPage();
+    await mainFunctionsPage.voiceAIImage.waitForDisplayed({ timeout: 5000 });
     await expect(mainFunctionsPage.voiceAIImage).toBeDisplayed();
     await expect(mainFunctionsPage.voiceAITitle).toBeDisplayed();
   });
@@ -20,6 +21,7 @@ describe("Main page", () => {
 
   it("Verify AI assistant chat", async () => {
     await mainFunctionsPage.clickButtonChat();
+    await mainFunctionsPage.userMessageChat.waitForExist({ timeout: 5000 });
     await expect(mainFunctionsPage.userMessageChat).toBeExisting();
     expect(mainFunctionsPage.assistantMessageChat).toBeElementsArrayOfSize(2);
   });
