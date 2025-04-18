@@ -38,6 +38,8 @@ git clone https://github.com/BilikSergey/Task-7-WebdriverIO.git
 npm install
 ```
 
+- Install docker for desktop.
+
 ## Run tests
 Run all tests in headless mode: 
 ```bash
@@ -67,6 +69,14 @@ test:headless:firefox
 Run tests with microsoft Edge:
 ```bash
 test:headless:edge
+```
+Run to build a docker
+```bash
+doker:build
+```
+Run docker
+```bash
+docker:run
 ```
 ## Create a report
 ```bash
