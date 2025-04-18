@@ -111,6 +111,8 @@ describe("Sign Up Tests", () => {
       password: userData.password,
       check: false,
     });
+    await signUpPage.buttonApplyPromoCode.waitForDisplayed({ timeout: 5000 });
+    await signUpPage.buttonApplyPromoCode.waitForEnabled({ timeout: 5000 });
     await signUpPage.clickButtonApplyPromoCode();
     await expect(signUpPage.inputPromoCode).toBeExisting();
   });

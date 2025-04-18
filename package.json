@@ -8,7 +8,9 @@
     "test:ui:chrome": "wdio run configs/uiMode.conf.ts",
     "test:headless:firefox": "wdio run configs/firefoxTest.conf.ts",
     "test:headless:edge": "wdio run configs/microsoftEdge.conf.ts",
-    "report:allure:generate": "allure generate --clean allure-results -o allure-report"
+    "report:allure:generate": "allure generate --clean allure-results -o allure-report",
+    "docker:build": "docker build -t mytest -f Dockerfile .",
+    "docker:run": "docker run -it mytest"
   },
   "name": "Task 7 WebdriverIO",
   "type": "module",
