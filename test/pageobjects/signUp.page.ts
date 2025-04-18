@@ -103,6 +103,8 @@ class SignUpPage {
     await this.inputPassword.setValue(password);
     if (check) await this.checkBox.click();
     else await this.checkBox.scrollIntoView();
+    await this.buttonSubmit.waitForDisplayed({ timeout: 5000 });
+    await this.buttonSubmit.waitForEnabled({ timeout: 5000 });
     await this.buttonSubmit.click();
   }
 }
