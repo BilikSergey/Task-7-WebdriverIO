@@ -16,6 +16,9 @@ jobs:
       - name: Build Docker Image
         run: docker build -t wdio-tests .
 
+      - name: Clean old Allure results
+        run: rm -rf allure-results allure-report
+
       - name: Run Tests and Generate Report in Docker
         run: docker run -v ${{ github.workspace }}/allure-report:/usr/src/app/allure-report wdio-tests
         continue-on-error: true
