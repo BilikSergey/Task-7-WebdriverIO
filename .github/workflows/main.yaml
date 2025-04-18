@@ -21,25 +21,19 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build Docker Image
-        run: npm run docker:build
-
-      - name: Run Docker container
-        run: npm run docker:run
-        continue-on-error: true
-
-      - name: Clean up Docker images
-        run: docker rmi my-app
-
       - name: Clean old Allure results
         run: rm -rf allure-results allure-report
 
-      - name: Run tests
-        run: npm run test:headless:chrome
-        continue-on-error: true
+      - name: Build Docker Image
+        run: npm run docker:build
 
-      - name: Generate Allure Report
-        run: npm run report:allure:generate
+      - name: Run Docker container and generate report
+        run: |
+          docker run --rm \
+            -v ${{ github.workspace }}/allure-results:/usr/src/app/allure-results \
+            -v ${{ github.workspace }}/allure-report:/usr/src/app/allure-report \
+            mytest
+        continue-on-error: true
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
