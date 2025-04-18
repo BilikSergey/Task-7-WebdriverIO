@@ -43,4 +43,5 @@ COPY . .
 
 RUN npm ci
 
-CMD ["npm", "run", "test:headless:chrome"]
+CMD ["sh", "-c", "npm run test:headless:chrome && npm run report:allure:generate"]
+
