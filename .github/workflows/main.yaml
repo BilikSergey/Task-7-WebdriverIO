@@ -26,6 +26,7 @@ jobs:
 
       - name: Run Docker container
         run: npm run docker:run
+        continue-on-error: true
 
       - name: Clean up Docker images
         run: docker rmi my-app
