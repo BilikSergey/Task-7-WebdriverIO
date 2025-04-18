@@ -35,6 +35,9 @@ jobs:
             mytest
         continue-on-error: true
 
+      - name: List Allure report files
+        run: ls -la ./allure-report
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
