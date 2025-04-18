@@ -1,7 +1,7 @@
 ## Summary of repo
 # Task 7 Wdio
 Repo is dedicated for testing Website Telnyx on wdio, create a report with Allure.
-##Requirements
+## Requirements
 Among requirements are installing project, node.JS, faker, any code editor and allure.
 
 ## Setup
