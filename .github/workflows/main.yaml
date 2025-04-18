@@ -32,7 +32,7 @@ jobs:
           docker run --rm \
             -v ${{ github.workspace }}/allure-results:/usr/src/app/allure-results \
             -v ${{ github.workspace }}/allure-report:/usr/src/app/allure-report \
-            mytest sh -c "npm run test || true && npm run report:allure:generate"
+            mytest sh -c "npm run test:headless:chrome || true && npm run report:allure:generate"
 
       - name: List Allure report files
         run: ls -la ./allure-report
