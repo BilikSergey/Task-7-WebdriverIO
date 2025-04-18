@@ -18,6 +18,7 @@ jobs:
 
       - name: Run Tests and Generate Report in Docker
         run: docker run -v ${{ github.workspace }}/allure-report:/usr/src/app/allure-report wdio-tests
+        continue-on-error: true
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
