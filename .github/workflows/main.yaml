@@ -2,7 +2,7 @@ name: Run Tests and Generate Allure Report
 
 on:
   push:
-    branches: main
+    branches: [docker]
   workflow_dispatch:
 
 jobs:
@@ -13,20 +13,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "v22.13.1"
+      - name: Build Docker Image
+        run: docker build -t wdio-tests .
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run tests
-        run: npm run test:headless:chrome
-        continue-on-error: true
-
-      - name: Generate Allure Report
-        run: npm run report:allure:generate
+      - name: Run Tests and Generate Report in Docker
+        run: docker run -v ${{ github.workspace }}/allure-report:/usr/src/app/allure-report wdio-tests
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
