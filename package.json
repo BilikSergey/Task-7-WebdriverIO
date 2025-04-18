@@ -10,7 +10,7 @@
     "test:headless:edge": "wdio run configs/microsoftEdge.conf.ts",
     "report:allure:generate": "allure generate --clean allure-results -o allure-report",
     "docker:build": "docker build -t mytest -f Dockerfile .",
-    "docker:run": "docker run -it mytest"
+    "docker:run": "docker run mytest"
   },
   "name": "Task 7 WebdriverIO",
   "type": "module",
