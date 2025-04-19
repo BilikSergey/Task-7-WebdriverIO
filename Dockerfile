@@ -37,7 +37,7 @@ RUN wget -q -O /tmp/chrome.deb https://dl.google.com/linux/direct/google-chrome-
     apt-get install -y /tmp/chrome.deb && \
     rm /tmp/chrome.deb
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
 COPY . .
 
