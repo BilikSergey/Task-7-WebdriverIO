@@ -105,6 +105,7 @@ class SignUpPage {
     else await this.checkBox.scrollIntoView();
     await this.buttonSubmit.waitForDisplayed({ timeout: 5000 });
     await this.buttonSubmit.waitForEnabled({ timeout: 5000 });
+    await this.buttonSubmit.waitForClickable({ timeout: 5000 });
     await this.buttonSubmit.click();
   }
 }
