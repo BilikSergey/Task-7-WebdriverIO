@@ -1,4 +1,5 @@
 export const config = {
+  baseUrl: "https://telnyx.com/",
   runner: "local",
   tsConfigPath: "./tsconfig.json",
 

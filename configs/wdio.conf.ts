@@ -1,4 +1,5 @@
 export const config: WebdriverIO.Config = {
+  baseUrl: "https://telnyx.com/",
   runner: "local",
   tsConfigPath: "./tsconfig.json",
 
