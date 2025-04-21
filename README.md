@@ -6,25 +6,9 @@ Among requirements are installing project, node.JS, faker, any code editor, dock
 
 ## Setup
 
-- Install wdio
+- Install any code editor (VS Code) or IDE
 
-```bash
-npm init wdio@latest .
-```
-
-- Install any code editor (VS Code) or IDE.
-
-- Install allure.
-
-```bash
-npm install @wdio/allure-reporter --save-dev
-```
-
-- Install faker.
-
-```bash
-npm install @faker-js/faker
-```
+- Install node.js 22.13.1
 
 - Clone the project:
 
@@ -36,6 +20,24 @@ git clone https://github.com/BilikSergey/Task-7-WebdriverIO.git
 
 ```bash
 npm install
+```
+
+- Install wdio
+
+```bash
+npm init wdio@latest .
+```
+
+- Install allure.
+
+```bash
+npm install @wdio/allure-reporter --save-dev
+```
+
+- Install faker.
+
+```bash
+npm install @faker-js/faker
 ```
 
 - Install docker for desktop.
