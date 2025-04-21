@@ -1,4 +1,4 @@
-import shopPage from "../pageobjects/shop.page.ts";
+import shopPage from "../pageObjects/shop.page.ts";
 
 describe("Shop Test", () => {
   beforeEach(async () => {

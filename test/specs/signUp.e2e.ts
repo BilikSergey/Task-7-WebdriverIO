@@ -1,12 +1,11 @@
 import { faker } from "@faker-js/faker";
-import signUpPage from "../pageobjects/signUp.page.ts";
-import mainPage from "../pageobjects/main.page.ts";
+import signUpPage from "../pageObjects/signUp.page.ts";
 import testData from "../../data/testData.json";
 import userData from "../../data/userData.json";
 
 describe("Sign Up Tests", () => {
   beforeEach(async () => {
-    await mainPage.visitMainPage();
+    await browser.url('');
   });
 
   it("User fails signup due to unchecked terms", async () => {

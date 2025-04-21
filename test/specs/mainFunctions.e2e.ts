@@ -1,9 +1,8 @@
-import mainPage from "../pageobjects/main.page.ts";
-import mainFunctionsPage from "../pageobjects/mainFunctions.page.ts";
+import mainFunctionsPage from "../pageObjects/mainFunctions.page.ts";
 
 describe("Main page", () => {
   beforeEach(async () => {
-    await mainPage.visitMainPage();
+    await browser.url('');
   });
 
   it("Verify presence of elements on the Voice AI page", async () => {

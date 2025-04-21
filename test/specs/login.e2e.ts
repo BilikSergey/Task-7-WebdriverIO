@@ -1,4 +1,4 @@
-import loginPage from "../pageobjects/login.page.ts";
+import loginPage from "../pageObjects/login.page.ts";
 import testData from "../../data/testData.json";
 
 describe("Login Test", () => {
